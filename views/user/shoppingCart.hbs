@@ -1,0 +1,56 @@
+<div style="padding: 30px">
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col" class="text-center">Product Name</th>
+                <th scope="col" class="text-center">Product Quantity</th>
+                <th scope="col" class="text-center">Product Price</th>
+                <th scope="col" class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each userCart.selectProduct as |val index|}}
+            <tr>
+                <th scope="row" class="text-center">{{add @index}}</th>
+                <td class="text-center">{{val.name}}</td>
+                <td class="text-center">
+                    {{#if (checkQuantity @val.quantity)}}
+                    <a href="#" class="btn btn-light disabled" style="margin-right: 30px"><i class="fa fa-minus"
+                            aria-hidden="true"></i></a>
+                    {{else}}
+                    <a href="/decreaseProduct/{{index}}" class="btn btn-light" style="margin-right: 30px"><i
+                            class="fa fa-minus" aria-hidden="true"></i></a>
+
+                    {{/if}}
+                    {{val.quantity}}
+                    <a href="/increaseProduct/{{index}}" class="btn btn-light" style="margin-left: 30px"><i
+                            class="fa fa-plus" aria-hidden="true"></i></a>
+                </td>
+                <td class="text-center">{{val.price}}</td>
+                <td class="text-center">
+                    <a href="/delete/{{index}}" class="btn btn-secondary">
+                        <i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                </td>
+
+                </td>
+            </tr>
+
+            {{/each}}
+
+            <tr>
+
+                <td colspan="4" style="font-weight: bold">Total Price</td>
+                <td style="font-weight: bold" class="text-center">$ {{userCart.totalPrice}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center">
+   
+        <a href="/checkOut" class="btn btn-success " style="width: 200px;">Check Out</a>
+  
+
+</div>

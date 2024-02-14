@@ -1,0 +1,55 @@
+<div class="row">
+  {{#each products}}
+    {{#each this}}
+      <div class="col-sm-4 mb-4">
+        <div class="card">
+          <div class="text-center">
+            <img src="{{this.imagePath}}" class="card-img-top" alt="...">
+              <div class="card-body">
+            <h5 class="card-title">{{this.productName}}</h5>
+            <p class="card-text">
+              Storage Capacity: {{this.information.storageCapacity}} GB <br>
+              Number Of SIM: {{this.information.numberOfSIM}} SIM <br>
+              Rear Camera Resolution: {{this.information.cameraResolution}} MP <br>
+              Display Size (Inch): {{this.information.displaySize}} Inch <br>
+              <div class="bold-text">Price: $ {{this.price}}</div>
+               
+            </p>
+          </div>
+          {{#if ../../checkUser}}
+            <div style="padding-bottom: 20px"><a href="/addToCart/{{this._id}}/{{this.price}}/{{this.productName}}" class="btn btn-success"  >Buy</a></div>
+
+          {{else}}
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Buy
+</button>
+          {{/if}}
+      
+            
+            
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  {{/each}}
+  <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Warning</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Please Sign-In before buy any thing
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="/users/signIn" class="btn btn-primary">Sign-In</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+

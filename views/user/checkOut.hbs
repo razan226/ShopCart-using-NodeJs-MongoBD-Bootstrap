@@ -1,0 +1,63 @@
+<div style="padding-top: 30px ; padding-bottom: 30px" class="col-md-6 offset-md-3">
+<div id="payment-errors" class="alert alert-danger "></div>
+    
+    <form action="" method="post" id="checkout-form">
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" name="name" placeholder="Please Enter Your Name" class="form-control" id="">
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="Address">Adress</label>
+            <input type="text" name="address" placeholder="Please Enter Your Address" class="form-control" id="">
+
+        </div>
+
+        <div class="form-group">
+            <label for="Credit Card Name">Card Name</label>
+            <input type="text" name="name" placeholder="Please Enter Your Credit Card Name" class="form-control" id="">
+
+        </div>
+        <div class="form-group">
+            <label for="Credit Card Number">Card Number</label>
+            <input type="number" name="name" placeholder="Please Enter Your Credit Card Number" class="form-control"
+                id="card-number">
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Expired Month">Expired Month</label>
+                    <input type="number" name="Expired Month" placeholder="Please Enter Your Credit Expired Month"
+                        class="form-control" id="card-expiry-month">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Expired Year">Expired Year</label>
+                    <input type="number" name="Expired Year" placeholder="Please Enter Your Credit Expired Year"
+                        class="form-control" id="card-expiry-year">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="CVC">CVC</label>
+            <input type="number" name="CVC" placeholder="Please Enter Your CVC" class="form-control" id="card-cvc">
+        </div>
+        <div class="text-center" style="padding-top: 30px;">
+            <button type="submit" class="btn btn-success">CheckOut ${{totalPrice}}</button>
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="/javascripts/checkOut.js"></script>
+
+
+
+
